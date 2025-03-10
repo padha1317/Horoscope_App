@@ -1,0 +1,17 @@
+{
+  "node": {
+    "7f3a9fcf8177dc53d46cc97c825cc2d84d5fe18b7a": {
+      "workers": {
+        "app/horoscope/[locale]/[sign]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fdharanichauhan%2FDesktop%2Fgit_project%2Fhoroscope_app%2Fapp%2Factions%2Fhoroscope.ts%22%2C%5B%7B%22id%22%3A%227f3a9fcf8177dc53d46cc97c825cc2d84d5fe18b7a%22%2C%22exportedName%22%3A%22getHoroscope%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/horoscope/[locale]/[sign]/page": "rsc"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "f82Yi3ii6VYwbj2M6A3HbpmI1uWIlFANs4KVd4E9Ipo="
+}
