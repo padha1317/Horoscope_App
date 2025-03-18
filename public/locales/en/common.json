@@ -1,5 +1,20 @@
 {
-  "selectZodiac": "Select your zodiac sign",
-  "horoscopeToday": "Today's Horoscope",
-  "chooseDate": "Choose a date"
+  "title": "Horoscope App",
+  "description": "Select your zodiac sign and date to get your horoscope.",
+  "back": "Back to Selection",
+  "toggleLang": "Deutsch",
+  "horoscopeTitle": "{sign} Horoscope",
+  "selectDate": "Please select a date first.",
+  "aries": "Aries",
+  "taurus": "Taurus",
+  "gemini": "Gemini",
+  "cancer": "Cancer",
+  "leo": "Leo",
+  "virgo": "Virgo",
+  "libra": "Libra",
+  "scorpio": "Scorpio",
+  "sagittarius": "Sagittarius",
+  "capricorn": "Capricorn",
+  "aquarius": "Aquarius",
+  "pisces": "Pisces"
 }

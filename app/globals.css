@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
   --background: #333333;  /* Light gray background */
@@ -14,7 +11,7 @@
   --font-mono: 'Courier New', monospace;
 }
 
-@theme inline {
+inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);

@@ -1,5 +1,20 @@
 {
-  "selectZodiac": "Wählen Sie Ihr Sternzeichen",
-  "horoscopeToday": "Horoskop für heute",
-  "chooseDate": "Wählen Sie ein Datum"
+  "title": "Horoskop-App",
+  "description": "Wählen Sie Ihr Sternzeichen und Datum, um Ihr Horoskop zu erhalten.",
+  "back": "Zurück zur Auswahl",
+  "toggleLang": "English",
+  "horoscopeTitle": "{sign}-Horoskop",
+  "selectDate": "Bitte wählen Sie zuerst ein Datum aus.",
+  "aries": "Widder",
+  "taurus": "Stier",
+  "gemini": "Zwillinge",
+  "cancer": "Krebs",
+  "leo": "Löwe",
+  "virgo": "Jungfrau",
+  "libra": "Waage",
+  "scorpio": "Skorpion",
+  "sagittarius": "Schütze",
+  "capricorn": "Steinbock",
+  "aquarius": "Wassermann",
+  "pisces": "Fische"
 }

@@ -5,13 +5,15 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: var(--font-sans);
-    --font-mono: var(--font-mono);
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-red-500: oklch(0.637 0.237 25.331);
     --color-green-500: oklch(0.723 0.219 149.579);
     --color-blue-400: oklch(0.707 0.165 254.624);
     --color-blue-500: oklch(0.623 0.214 259.815);
     --color-blue-600: oklch(0.546 0.245 262.881);
-    --color-blue-700: oklch(0.488 0.243 264.376);
     --color-gray-100: oklch(0.967 0.003 264.542);
     --color-gray-600: oklch(0.446 0.03 256.802);
     --color-gray-700: oklch(0.373 0.034 259.733);
@@ -28,8 +30,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-bold: 700;
     --radius-lg: 0.5rem;
     --default-transition-duration: 150ms;
@@ -190,9 +190,6 @@
   }
 }
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
   .relative {
     position: relative;
   }
@@ -263,13 +260,6 @@
       margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
-  .space-x-4 {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -279,9 +269,6 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
-  }
-  .bg-blue-500 {
-    background-color: var(--color-blue-500);
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
@@ -336,10 +323,6 @@
     font-size: var(--text-3xl);
     line-height: var(--tw-leading, var(--text-3xl--line-height));
   }
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
   .text-lg {
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -352,14 +335,14 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .text-gray-100 {
-    color: var(--color-gray-100);
-  }
   .text-gray-600 {
     color: var(--color-gray-600);
   }
   .text-gray-700 {
     color: var(--color-gray-700);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-white {
     color: var(--color-white);
@@ -414,24 +397,10 @@
       }
     }
   }
-  .hover\:bg-blue-700 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-blue-700);
-      }
-    }
-  }
   .hover\:text-blue-400 {
     &:hover {
       @media (hover: hover) {
         color: var(--color-blue-400);
-      }
-    }
-  }
-  .hover\:text-blue-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-blue-600);
       }
     }
   }
@@ -469,6 +438,12 @@
   --font-sans: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   --font-mono: 'Courier New', monospace;
 }
+inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #333333;
@@ -501,11 +476,6 @@ main {
   padding: 2rem;
 }
 @property --tw-space-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-@property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
