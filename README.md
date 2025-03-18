@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 Horoscope App
 
-## Getting Started
+A multi-language horoscope application built with **Next.js**, **React**, and **Tailwind CSS**. Users can select their zodiac sign and language (English or German) to receive a daily horoscope.
 
-First, run the development server:
+## 🚀 Features
+- Server-side API to fetch horoscope data
+- Dynamic routing for zodiac signs
+- Language switching (English & German)
+- Responsive design with Tailwind CSS
+- State management using React Context
+
+## 📂 Project Structure
+
+```
+📦 horoscope-app
+├── 📂 app
+│   ├── 📂 actions
+│   │   ├── horoscope.ts       # Fetches horoscope data
+│   ├── 📂 api/horoscope
+│   │   ├── route.ts           # API route for horoscope data
+│   ├── 📂 components
+│   │   ├── Horoscope.tsx      # UI component for displaying horoscope
+│   ├── 📂 constant
+│   │   ├── horoscope.ts       # Horoscope data
+│   ├── 📂 horoscope/[locale]/[sign]
+│   │   ├── page.tsx           # Dynamic horoscope page
+│   ├── 📜 layout.tsx          # Layout and language context
+│   ├── 📜 page.tsx            # Homepage with zodiac selection
+├── 📜 styles/globals.css      # Global styles
+├── 📜 README.md               # Project documentation
+```
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/horoscope-app.git
+cd horoscope-app
+npm install
+```
+
+## 🔧 Running the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌍 How It Works
+1. **Select a Zodiac Sign** from the homepage.
+2. **Choose a Language (English/German)**.
+3. **Receive a Random Horoscope** for the day.
+4. **Toggle Languages** without losing the selected sign.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📜 Key Code Breakdown
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1️⃣ **Fetching Horoscope Data** (`app/actions/horoscope.ts`)
+```ts
+const randomHoroscope = horoscopeMessages[Math.floor(Math.random() * horoscopeMessages.length)];
+return { horoscope: randomHoroscope, image: horoscopeData.image };
+```
+✅ Fetches horoscope data from predefined messages.
+✅ Returns a **random** daily horoscope.
 
-## Learn More
+### 2️⃣ **API Endpoint** (`app/api/horoscope/route.ts`)
+```ts
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+  const sign = url.searchParams.get('sign');
+  return NextResponse.json({ horoscope: get(horoscope, lang), image: horoscope.image });
+}
+```
+✅ Fetches horoscope based on `sign` and `lang`.
+✅ Returns horoscope message & image as JSON.
 
-To learn more about Next.js, take a look at the following resources:
+### 3️⃣ **Rendering Horoscope Component** (`app/components/Horoscope.tsx`)
+```ts
+const toggleLanguage = () => {
+  setLanguage(language === 'en' ? 'de' : 'en');
+  window.location.href = `/horoscope/${newLang}/${sign}`;
+};
+```
+✅ **Toggles between English & German**.
+✅ **Updates URL dynamically**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4️⃣ **Dynamic Routing for Horoscope Pages** (`app/horoscope/[locale]/[sign]/page.tsx`)
+```ts
+const sign = get(params, 'sign', 'aries');
+const locale = get(params, 'locale', 'en');
+const data = await getHoroscope(sign, locale);
+```
+✅ Retrieves horoscope based on **URL parameters**.
+✅ Defaults to Aries & English if not specified.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5️⃣ **Language Context & Layout** (`app/layout.tsx`)
+```ts
+const LanguageContext = createContext({ language: 'en', toggleLanguage: () => {} });
+```
+✅ Uses **React Context** to manage language state.
+✅ **Provides a layout with language toggle**.
 
-## Deploy on Vercel
+## 🎨 Styling
+```css
+:root {
+  --background: #333;
+  --foreground: #f5f5f5;
+}
+```
+✅ Uses **CSS variables** for theming.
+✅ Fully **responsive** UI with **Tailwind CSS**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
+This project is open-source under the **MIT License**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💡 Contributing
+Feel free to submit issues or pull requests to improve the project!
+
+## 📬 Contact
+For any questions, reach out at [dharanichuahan17@gmail.com](mailto:dharanichuahan17@gmail.com).
+
