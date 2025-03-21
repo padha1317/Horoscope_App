@@ -46,7 +46,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               onClick={() => router.push('/')}
               className="text-2xl font-bold hover:text-blue-400 transition duration-300"
             >
-              🔮 Horoscope App
+              🔮 {language === 'en' ? 'Horoscope App' : 'Horoskope App'}
             </button>
 
             <button

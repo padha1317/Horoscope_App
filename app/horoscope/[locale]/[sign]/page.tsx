@@ -11,16 +11,15 @@ export default async function HoroscopePage({
   const sign = get(params, 'sign', 'aries');
   const locale = get(params, 'locale', 'en');
 
-  // Using fetch to call the API
-  // const res = await fetch(
-  //   `http://localhost:3000/api/horoscope?sign=${sign}&lang=${locale}`
-  // );
-  // const data = await res.json();
-
   // Using the server action
   const data = await getHoroscope(sign, locale);
 
-  return <Horoscope horoscope={data.horoscope ?? ''} image={data.image ?? ''} lang={locale} />;
-  
-  
+// If image or horoscope is missing, pass the relevant error to the Horoscope component
+return (
+  <Horoscope
+    horoscope={data.horoscope ?? ''}
+    image={data.image ?? ''}
+    lang={locale}
+  />
+);
 }

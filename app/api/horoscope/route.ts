@@ -1,4 +1,4 @@
-import { horoscopes } from '@/app/constant/horoscope';
+/* import { horoscopes } from '@/app/constant/horoscope';
 import { get } from 'lodash';
 import { NextResponse } from 'next/server';
 
@@ -18,3 +18,4 @@ export async function GET(req: Request) {
     image: horoscope.image
   });
 }
+ */
